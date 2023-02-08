@@ -14,7 +14,7 @@ if(!fs.existsSync("private/data")){
     })
 }
 if(!fs.existsSync("private/data/click.json")){
-    fs.writeFileSync("private/data/click.json" , JSON.stringify({num:0}) )
+    fs.writeFileSync("private/data/click.json" , JSON.stringify({total:0}) )
 }
 let globalNum = Number(JSON.parse(fs.readFileSync("private/data/click.json" , "utf8")).total)
 
