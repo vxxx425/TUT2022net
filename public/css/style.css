@@ -1,0 +1,390 @@
+@font-face {
+    font-family: yumindb;
+    src: url("/fonts/YUMINDB.TTF");
+}
+
+@font-face {
+    font-family: dft;
+    src: url("/fonts/DFT.TTC");
+}
+
+*{box-sizing: border-box;}
+
+[hidden]{
+    display: none !important;
+}
+
+html,body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    /* cursor: url(/images/indeximg/滑鼠.png),pointer; */
+}
+
+.bkimg {
+    background-image: url(/images/indeximg/背圖1apng.png);/*記得改回來*/
+    background-size: cover;
+    background-position: center;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10vh;
+}
+
+main[data-stage="2"]{
+    background-image: url(/images/indeximg/底圖.png);
+}
+
+main[data-stage="2"] #fish{
+    opacity: 100%;
+}
+
+main.blur{
+    filter: blur(5px) brightness(20%);
+}
+
+#logo{
+    height: 5em;
+}
+
+#global-num{
+    font-family: yumindb;
+    font-size: 50px;
+    margin-block-start: 5px;/*margin-block是上下縮排*/
+    margin-block-end: 0px;/*margin-block是上下縮排*/
+    line-height: 1em;
+    color: #F88C0E;
+}
+
+#local-num{
+    font-family: yumindb;
+    font-size: 30px;
+    margin-block-start: 0px;
+    margin-block-end: 5px;
+    color: #F88C0E;
+}
+
+#local-num.glow{
+    cursor: pointer;
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow{
+    0%{
+        color: #F88C0E;
+    }
+    35%{
+        color: #F88C0E;
+    }
+    50%{
+        color: #ffffff;
+    }
+    75%{
+        color: #F88C0E;
+    }
+    100%{
+        color: #F88C0E;
+    }
+}
+
+#big-btn{
+    /* font-size: 3rem;
+    border-radius: 6px;
+    padding: 10px; */
+    height: 5em;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+#fish{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    object-fit: cover;
+    opacity: 0%;
+}
+
+#fb-btn{
+    aspect-ratio: 1/1;
+    width: 20vmin;
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 55%;
+    left: 25%;
+    opacity: 70%;
+}
+
+#ig-btn{
+    aspect-ratio: 1/1;
+    width: 20vmin;
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 30%;
+    right: 15%;
+    opacity: 70%;
+}
+
+#fb-btn:hover{
+    cursor: url(/images/indeximg/問號.png),auto;
+}
+
+#ig-btn:hover{
+    cursor: url(/images/indeximg/問號.png),auto;
+}
+
+#sitd-input{
+    opacity: 50%;
+    text-align: center;
+    margin-block-end: 1em;
+}
+
+.random-image{
+    position: absolute;
+    transform: translate(-50% , -50%);
+    aspect-ratio: 1/1;
+    width: 150px;
+    object-fit: contain;
+    animation: random-image-fadeout 1s ease-out forwards;
+}
+
+@keyframes random-image-fadeout{
+    0%{
+        opacity: 100%;
+    }
+    50%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
+/* #bwcut{
+    aspect-ratio: 1/1;
+    width: 100px;
+} */
+
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    opacity: 0%;
+    animation: fade-in-opacity 1000ms forwards;
+    animation-delay: 1500ms;
+}
+
+button{
+    cursor: pointer;
+}
+
+#ppdot{
+    width: 100vw;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    object-fit: cover;
+    animation: fade-in-opacity 2000ms;
+}
+
+@keyframes fade-in-opacity{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+footer{
+    --height: 7vh;
+    background-color: #F88C0E;
+    height: var(--height);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: calc(var(--height) / 5);
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    transform: translateY(100%);
+    animation: fade-from-bottom ease-out 500ms forwards , fade-in-opacity ease-out 500ms forwards;
+    animation-delay: 1000ms;
+}
+
+@keyframes fade-from-bottom{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.footer__box{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.image-btn{
+    background: none;
+    margin: 0;
+    padding: 0 !important; 
+    border: none;
+}
+
+.image-btn img{
+    height: 100%;
+}
+
+.footer__box img{
+    height: 100%;
+}
+
+.footer__box > a{
+    /* aspect-ratio: 1/1;
+    height: 100%;*/
+    display: block;
+} 
+
+#desc-modal{
+    width: 60vw;
+    height: 70vh;
+    top: calc(50% - 7vh);
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background: none;
+    position: absolute;
+    color: #EE891C;
+    padding: 3em 1em 1em 1em;
+    margin: 0;
+    border-width: 3px;
+    border-color: #EE891C;
+    border-style: solid;
+    border-radius: 3em;
+}
+
+#desc-modal__content{
+    padding: 0em 5em;
+    height: 100%;
+    overflow: auto;
+    /* mask-image: linear-gradient(0deg , #ffffff 0px , #ffffff 8.5% , #ffffff 100%);
+    -webkit-mask-image: linear-gradient(0deg , #ffffff 0px , #ffffff 8.5% , #ffffff 100%); */
+}
+
+/* width */
+#desc-modal__content::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+#desc-modal__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+#desc-modal__content::-webkit-scrollbar-thumb {
+    background: #EE891C;
+    border-radius: 9999999999999999px;
+}
+
+/* Handle on hover */
+#desc-modal__content::-webkit-scrollbar-thumb:hover {
+    background: #A25B09;
+}
+
+
+#desc-modal__content h3{
+    font-family: dft;
+    font-weight: 100;
+    text-align: center;
+}
+
+#desc-modal__content p{
+    text-indent: 2em;
+    text-align: justify;
+}
+
+#desc-modal__close-btn{
+    aspect-ratio: 1/1;
+    width: 4vw;
+    /* margin-inline: auto calc(-1 * calc(4vw + 0.5em + 3px)); */
+    /* margin-block-end: -2.5vw; */
+    /* padding: 5px; */
+    position: absolute;
+    top: 0;
+    right: -2em;
+    transform: translateX(100%);
+}
+
+#desc-modal__close-btn img{
+    width: 100%;
+}
+
+#desc-modal__nav{
+    display: none;
+    width: 100%;
+}
+
+#desc-modal__nav img{
+    width: 100%;
+}
+
+.phone-btn :nth-child(2){
+    display: none;
+}
+
+@media only screen and (max-width:768px){
+    .phone-btn :nth-child(1){
+        display: none;
+    }
+    .phone-btn :nth-child(2){
+        display: initial;
+    }
+    #footer__nav{
+        display: none;
+    }
+    footer{
+        background-color: transparent;
+    }
+    #ppdot{
+        display: none;
+    }
+    #fb-btn{
+        top: 70%;
+        left: 50%;
+    }
+    #ig-btn{
+        top: 10%;
+        right: 10%;
+    }
+    #content{
+        margin-block-start: 10vh;
+    }
+    #desc-modal{
+        width: 80vw;
+        height: 80vh;
+        padding: 1em;
+    }
+    #desc-modal__content{
+        padding: 1em;
+    }
+    #desc-modal__nav{
+        display: block;
+    }
+}
