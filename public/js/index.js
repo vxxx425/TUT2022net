@@ -293,3 +293,9 @@ function changebg(num){
         mainElement.dataset.stage=2
     }
 }
+
+mainElement.addEventListener("click" , () =>{
+    if(descModal.hidden === false){
+        closeDescModal()
+    }
+})

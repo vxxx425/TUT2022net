@@ -387,4 +387,7 @@ footer{
     #desc-modal__nav{
         display: block;
     }
+    #desc-modal__close-btn{
+        display: none;
+    }
 }
