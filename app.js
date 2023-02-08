@@ -8,7 +8,14 @@ import { fileURLToPath } from 'url';
 const __filename /*檔案詳細位置*/ = fileURLToPath(import.meta.url);
 const __dirname /*檔案路徑*/ = dirname(__filename);
 const app = express()
-
+if(!fs.existsSync("private/data")){
+    fs.mkdirSync("private/data" , {
+        recursive:true
+    })
+}
+if(!fs.existsSync("private/data/click.json")){
+    fs.writeFileSync("private/data/click.json" , JSON.stringify({num:0}) )
+}
 let globalNum = Number(JSON.parse(fs.readFileSync("private/data/click.json" , "utf8")).total)
 
 app.use("/",express.static("public")) 
