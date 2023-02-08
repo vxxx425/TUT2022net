@@ -16,7 +16,8 @@
 
 html,body{
     height: 100vh;
-    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -28,21 +29,72 @@ body{
 }
 
 .bkimg {
-    background-image: url(/images/indeximg/背圖1apng.png);/*記得改回來*/
     background-size: cover;
     background-position: center;
 }
 
 main{
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10vh;
 }
 
-main[data-stage="2"]{
-    background-image: url(/images/indeximg/底圖.png);
+#light-container{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.light{
+    position: absolute;
+    transform: translate(-50% , -50%);
+    aspect-ratio: 1/1;
+    width: 5px;
+    object-fit: contain;
+}
+
+#bgv{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+#bgv video{
+    transition: opacity 0.5s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#bgv :not(:first-child){
+    opacity: 0%;
+}
+
+/* :where(:not(:not(main[data-stage])),
+:not(main[data-stage="1"])) #bgv :nth-child(1) {
+    opacity: 0%;
+} */
+
+main[data-stage="2"] #bgv :nth-child(2){
+    opacity: 100%;
+}
+
+main[data-stage="2"] #logo{
+    opacity: 0%;
+}
+
+main[data-stage="2"] #logo-2{
+    opacity: 100%;
 }
 
 main[data-stage="2"] #fish{
@@ -55,6 +107,26 @@ main.blur{
 
 #logo{
     height: 5em;
+}
+
+#logo-2{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    object-fit: cover;
+    opacity: 0%;
+}
+
+#logo-2-{
+    width: 80%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    object-fit: cover;
+    opacity: 0%;
 }
 
 #global-num{
@@ -107,8 +179,8 @@ main.blur{
 }
 
 #fish{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -117,21 +189,19 @@ main.blur{
 }
 
 #fb-btn{
-    aspect-ratio: 1/1;
-    width: 20vmin;
+    height: 20vmin;
     position: absolute;
     transform: translate(-50% , -50%);
-    top: 55%;
+    top: 30%;
     left: 25%;
     opacity: 70%;
 }
 
 #ig-btn{
-    aspect-ratio: 1/1;
-    width: 20vmin;
+    height: 20vmin;
     position: absolute;
     transform: translate(-50% , -50%);
-    top: 30%;
+    top: 60%;
     right: 15%;
     opacity: 70%;
 }
@@ -191,8 +261,8 @@ button{
 }
 
 #ppdot{
-    width: 100vw;
-    height: 20vh;
+    width: 100%;
+    height: 20%;
     position: absolute;
     bottom: 0;
     object-fit: cover;
@@ -212,7 +282,7 @@ footer{
     --height: 7vh;
     background-color: #F88C0E;
     height: var(--height);
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -263,8 +333,8 @@ footer{
 } 
 
 #desc-modal{
-    width: 60vw;
-    height: 70vh;
+    width: 60%;
+    height: 70%;
     top: calc(50% - 7vh);
     left: 50%;
     transform: translate(-50% , -50%);
@@ -366,8 +436,8 @@ footer{
         display: none;
     }
     #fb-btn{
-        top: 70%;
-        left: 50%;
+        top: 10%;
+        left: 10%;
     }
     #ig-btn{
         top: 10%;
@@ -377,8 +447,8 @@ footer{
         margin-block-start: 10vh;
     }
     #desc-modal{
-        width: 80vw;
-        height: 80vh;
+        width: 80%;
+        height: 80%;
         padding: 1em;
     }
     #desc-modal__content{
@@ -389,5 +459,17 @@ footer{
     }
     #desc-modal__close-btn{
         display: none;
+    }
+    #bgv video {
+        object-position: left;
+    }
+    #fish{
+        object-position: left;
+    }
+    #logo-2{
+        display: none;
+    }
+    #logo-2-{
+        opacity: 100%;
     }
 }

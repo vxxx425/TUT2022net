@@ -8,6 +8,7 @@ const descModalCloseBtn = document.querySelector("#desc-modal__close-btn")
 const mainElement = document.querySelector("main")
 const sitdInput = document.querySelector("#sitd-input")
 const taco = document.querySelector("#taco")
+const lightContainer = document.querySelector("#light-container")
 
 const bgMap = {
     500:"/images/indeximg/背圖1apng.png",
@@ -156,6 +157,9 @@ const actions = {
     },
 }
 
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 /*onreadystatechange = 會在網頁讀取完後執行*/
 document.onreadystatechange = async () => {
     setIntervalImmediately(() => {
@@ -228,9 +232,10 @@ async function updateGlobalNum(path) {
         }
     })
     /*await就是等待 像安全保障*/
-    const num = (await res.json()).num.toLocaleString("en" , {useGrouping:true})
-    globalNum.innerHTML = num
+    const num = (await res.json()).num
+    globalNum.innerHTML = num.toLocaleString("en" , {useGrouping:true})
     changebg(num)
+    spawnLight(num)
 }
 
 function updateLocalNum(offset = 0){
@@ -292,6 +297,9 @@ function changebg(num){
     if(num >= 100000){
         mainElement.dataset.stage=2
     }
+    else{
+        mainElement.dataset.stage=1
+    }
 }
 
 mainElement.addEventListener("click" , () =>{
@@ -299,3 +307,14 @@ mainElement.addEventListener("click" , () =>{
         closeDescModal()
     }
 })
+
+function spawnLight(num){
+    const count = Math.floor(num/10000)
+    const newCount = count-lightContainer.children.length
+    for(let i = 0; i < newCount ; i ++){
+        const light = htmlToElement(`<img src="/images/indeximg/亮亮-.png" class="light">`)
+        light.style.left = `${(Math.random() * 100)}%`
+        light.style.top = `${(Math.random() * 100)}%`
+        lightContainer.appendChild(light)
+    }
+}
