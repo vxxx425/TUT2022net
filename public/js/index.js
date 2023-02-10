@@ -250,7 +250,7 @@ function randomShow(imgName){
     mainElement.appendChild(e)
     e.style.left = `${Math.floor(Math.random() * 100)}%`
     e.style.top = `${Math.floor(Math.random() * 100)}%`
-    e.src=`/images/${imgName}?a=${Math.random()}`
+    e.src=`/images/${imgName}`
     const t = setTimeout(() => {
         e.remove()
         clearTimeout(t)
