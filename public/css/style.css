@@ -16,7 +16,7 @@
 
 html,body{
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: -webkit-fill-available;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -279,7 +279,7 @@ button{
 }
 
 footer{
-    --height: 7vh;
+    --height: 3rem;
     background-color: #F88C0E;
     height: var(--height);
     width: 100%;
@@ -310,6 +310,18 @@ footer{
     display: flex;
     flex-direction: row;
     gap: 1em;
+}
+
+.footer__box > .phone-btn{
+    font-size: 1rem;
+    height: calc(var(--height) / 5 * 3);
+    width: calc(var(--height) / 5 * 3);
+}
+
+.footer__box > .phone-btn img{
+    height: calc(var(--height) / 5 * 3);
+    width: calc(var(--height) / 5 * 3);
+    object-fit: contain;
 }
 
 .image-btn{
