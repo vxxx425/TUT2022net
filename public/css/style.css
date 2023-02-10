@@ -74,10 +74,27 @@ main{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    pointer-events: none;
 }
 
 #bgv :not(:first-child){
     opacity: 0%;
+}
+
+#bgv video::-webkit-media-controls,
+#bgv video::-moz-media-controls,
+#bgv video::-o-media-controls,
+#bgv video::-ms-media-controls {
+    display: none !important;
+}
+
+#bgv video::-webkit-media-controls-start-playback-button {
+    display: none;
+}
+
+#bgv video::-webkit-media-controls-panel {
+    display: none !important;
+    opacity: 1 !important;
 }
 
 /* :where(:not(:not(main[data-stage])),
