@@ -119,10 +119,13 @@ const actions = {
     "Upādāna" : () => {
         randomShow("keyword/Upādāna.png")
     },
+    "Who’s crying" : () => {
+        randomShow("keyword/Who’s crying.png")
+    },
     "山靈" : () => {
         randomShow("keyword/山靈.png")
     },
-    "公車站" : () => {
+    "惡相善行" : () => {
         randomShow("keyword/公車站.png")
     },
     "凸凹萬事屋" : () => {
@@ -140,20 +143,23 @@ const actions = {
     "是誰殺了獨角獸" : () => {
         randomShow("keyword/是誰殺了獨角獸.png")
     },
-    "穿梭東門三百年" : () => {
+    "成大人之道" : () => {
         randomShow("keyword/穿梭東門三百年Game On The Path of NCKU.png")
     },
-    "踏溯穿梭三百年" : () => {
+    "真真的奇妙之旅" : () => {
         randomShow("keyword/踏溯穿梭三百年Jen's Fantastic Journey.png")
     },
     "趁熱打鐵" : () => {
         randomShow("keyword/趁熱打鐵.png")
     },
-    "餐具的起源" : () => {
+    "阿東的發明" : () => {
         randomShow("keyword/餐具的起源.png")
     },
     "點燈人" : () => {
         randomShow("keyword/點燈人.png")
+    },
+    "鐵・定型" : () => {
+        randomShow("keyword/鐵・定型.png")
     },
 }
 
